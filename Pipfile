@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "==2.2.5"
+graphene-django = "*"
+graphene = "*"
+graphql-jwt = "<0.3.0a0"
+django-graphql-jwt = "<0.3.0a0"
+graphql-relay = "<3.0.0a0"
+
+[requires]
+python_version = "3.6"
