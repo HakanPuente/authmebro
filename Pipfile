@@ -12,6 +12,7 @@ graphene = "*"
 graphql-jwt = "<0.3.0a0"
 django-graphql-jwt = "<0.3.0a0"
 graphql-relay = "<3.0.0a0"
+html2text = "*"
 
 [requires]
 python_version = "3.6"

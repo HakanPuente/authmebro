@@ -145,3 +145,11 @@ GRAPHQL_JWT = {
     'JWT_EXPIRATION_DELTA': timedelta(minutes=60),
     'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=30),
 }
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ha79ak@gmail.com'
+EMAIL_HOST_PASSWORD ='vkg8820167'
