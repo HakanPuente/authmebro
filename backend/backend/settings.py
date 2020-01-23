@@ -14,6 +14,10 @@ import os
 
 from datetime import timedelta
 
+import environ
+
+env = environ.Env()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -43,6 +47,7 @@ INSTALLED_APPS = [
     'backend',
     'users',
     'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -135,8 +140,11 @@ GRAPHENE = {
 
 AUTHENTICATION_BACKENDS = [
     'graphql_jwt.backends.JSONWebTokenBackend',
-    # 'django.contrib.auth.backends.ModelBackend',
-    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+    # 'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
 ]
 
 GRAPHQL_JWT = {
@@ -153,3 +161,30 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ha79ak@gmail.com'
 EMAIL_HOST_PASSWORD ='vkg8820167'
+
+
+# SOCIAL_AUTH_PIPELINE = [
+#     'social_core.pipeline.social_auth.social_details',
+#     'social_core.pipeline.social_auth.social_uid',
+#     'social_core.pipeline.social_auth.auth_allowed',
+#     'social_core.pipeline.social_auth.social_user',
+#     'social_core.pipeline.user.get_username',
+#     'social_core.pipeline.user.create_user',
+#     'social_core.pipeline.social_auth.associate_user',
+#     'social_core.pipeline.social_auth.load_extra_data',
+#     'social_core.pipeline.user.user_details',
+# ]
+
+
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY =\
+#      env('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='')
+
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET =\
+#     env('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='')
+
+# SOCIAL_AUTH_FACEBOOK_KEY = env('SOCIAL_AUTH_FACEBOOK_KEY', default='')
+# SOCIAL_AUTH_FACEBOOK_SECRET = env('SOCIAL_AUTH_FACEBOOK_SECRET', default='')
+
+
+SOCIAL_AUTH_GITHUB_OAUTH2_KEY = env('SOCIAL_AUTH_GITHUB_OAUTH2_KEY', default='394270ad529be9f372ac')
+SOCIAL_AUTH_GITHUB_OAUTH2_SECRET = env('SOCIAL_AUTH_GITHUB_OAUTH2_SECRET', default='2fffdfa9d123eec06e29e9214ba29f330b9d8dca')
