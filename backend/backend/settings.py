@@ -163,28 +163,33 @@ EMAIL_HOST_USER = 'ha79ak@gmail.com'
 EMAIL_HOST_PASSWORD ='vkg8820167'
 
 
-# SOCIAL_AUTH_PIPELINE = [
-#     'social_core.pipeline.social_auth.social_details',
-#     'social_core.pipeline.social_auth.social_uid',
-#     'social_core.pipeline.social_auth.auth_allowed',
-#     'social_core.pipeline.social_auth.social_user',
-#     'social_core.pipeline.user.get_username',
-#     'social_core.pipeline.user.create_user',
-#     'social_core.pipeline.social_auth.associate_user',
-#     'social_core.pipeline.social_auth.load_extra_data',
-#     'social_core.pipeline.user.user_details',
-# ]
+SOCIAL_AUTH_PIPELINE = [
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+]
 
 
-# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY =\
-#      env('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = env('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='654658729190-hrlqissbq9095beh94lea587kd2qd94f.apps.googleusercontent.com')
 
-# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET =\
-#     env('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='')
-
-# SOCIAL_AUTH_FACEBOOK_KEY = env('SOCIAL_AUTH_FACEBOOK_KEY', default='')
-# SOCIAL_AUTH_FACEBOOK_SECRET = env('SOCIAL_AUTH_FACEBOOK_SECRET', default='')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = env('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='vZUWB6B-cWZ-8bvyO4tpD1f_')
 
 
 SOCIAL_AUTH_GITHUB_OAUTH2_KEY = env('SOCIAL_AUTH_GITHUB_OAUTH2_KEY', default='394270ad529be9f372ac')
 SOCIAL_AUTH_GITHUB_OAUTH2_SECRET = env('SOCIAL_AUTH_GITHUB_OAUTH2_SECRET', default='2fffdfa9d123eec06e29e9214ba29f330b9d8dca')
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = env('SOCIAL_AUTH_FACEBOOK_KEY', default='1568790199963835')
+SOCIAL_AUTH_FACEBOOK_SECRET = env('SOCIAL_AUTH_FACEBOOK_SECRET', default='baecc6438f56bd0f159d1d0ea32503c1')
+
+# SOCIAL_AUTH_SPOTIFY_OAUTH2_KEY = env('SOCIAL_AUTH_SPOTIFY_KEY', default='0d22ab6a18864e089f01e710f173b4c4')
+# SOCIAL_AUTH_SPOTIFY_OAUTH2_SECRET = env('SOCIAL_AUTH_SPOTIFY_SECRET', default='09c58ece9a894e3e876742167b9d2a95')
+
+# SOCIAL_AUTH_INSTAGRAM_OAUTH2_KEY = env('SOCIAL_AUTH_INSTAGRAM_KEY', default='')
+# SOCIAL_AUTH_INSTAGRAM_OAUTH2_SECRET = env('SOCIAL_AUTH_INSTAGRAM_SECRET', default='')
