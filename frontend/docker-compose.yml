@@ -1,0 +1,7 @@
+web:
+  image: kanalhayat:v0.0.1
+  ports:
+   - "3000:3000"
+  environment:
+   - API_URL="http://localhost:8000/graphql/"
+  command: pm2-runtime start npm --name "next" -- start

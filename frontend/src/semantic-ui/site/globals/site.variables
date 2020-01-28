@@ -1,0 +1,13 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@primaryColor: #34b5cf;
+@secondaryColor: #bbbbbb;
+@lightPrimaryColor: @lightBlue;
+@lightSecondaryColor: #dadada;
+@red: #e56655;
+
+@videoPlayerSeekPlayed: #E6E6E6;
+@videoPlayerSeekLoaded: rgba(230, 230, 230, 0.5);
+@videoPlayerSeekBg: rgba(230, 230, 230, 0.25);

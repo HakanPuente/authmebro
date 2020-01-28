@@ -13,6 +13,7 @@ html2text = "*"
 django-graphql-social-auth = "*"
 django-environ = "*"
 black = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"

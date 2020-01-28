@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 
 from datetime import timedelta
+from corsheaders.defaults import default_headers
 
 import environ
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "graphene_django",
+    "corsheaders",
     "backend",
     "users",
     "graphql_jwt.refresh_token.apps.RefreshTokenConfig",
@@ -53,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -197,3 +200,16 @@ SOCIAL_AUTH_FACEBOOK_SECRET = env(
 
 # SOCIAL_AUTH_INSTAGRAM_OAUTH2_KEY = env('SOCIAL_AUTH_INSTAGRAM_KEY', default='')
 # SOCIAL_AUTH_INSTAGRAM_OAUTH2_SECRET = env('SOCIAL_AUTH_INSTAGRAM_SECRET', default='')
+
+CORS_ORIGIN_WHITELIST = [
+    f"http://localhost:8080",
+    f"https://{env('ADMIN_URL', default='localhost')}",
+    f"https://{env('UI_URL', default='localhost')}",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "language",
+    "accept-language",
+]

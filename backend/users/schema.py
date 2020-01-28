@@ -222,3 +222,29 @@ class Mutation(graphene.ObjectType):
     delete_user = DeleteUser.Field()
     forgot_password = ForgotPassword.Field()
     confirm_new_password = ConfirmNewPassword.Field()
+
+
+
+
+import graphene
+from graphene import relay
+from graphene_django.filter import DjangoFilterConnectionField
+from .models import Users
+
+class UserNode(DjangoObjectType):
+    class Meta:
+        model = Users
+        filter_fields = []
+        interfaces = (relay.Node,)
+
+
+class Query(graphene.ObjectType):
+    user = relay.Node.Field(UserNode)
+    all_users = DjangoFilterConnectionField(UserNode)
+    me = graphene.Field(UserNode)
+
+    def resolve_me(self, info):
+        user = info.context.user
+        if user.is_anonymous:
+            return None
+        return user
