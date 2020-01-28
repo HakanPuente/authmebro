@@ -2,26 +2,28 @@ import json
 from django.test import TestCase
 from users.models import Users
 
+
 def test_db():
 
     testUser = Users.objects.create(
-        username = "TestUser1",
-        first_name = "John",
-        last_name = "Doe",
-        email = "authmebro@yandex.com"
+        username="TestUser1",
+        first_name="John",
+        last_name="Doe",
+        email="authmebro@yandex.com",
     )
     testUser.set_password("ankara2020")
     testUser.save()
     # print("testUser details ", testUser.id, testUser.username)
 
+
 class UserCrudTestCase(TestCase):
     @classmethod
     def setUpTestData(cls):
-        test_db() 
-   
-   ######################################
+        test_db()
 
-    #SignUp
+    ######################################
+
+    # SignUp
 
     def test_signup(self):
         print("-SignUp-")
@@ -29,7 +31,7 @@ class UserCrudTestCase(TestCase):
         numOfUserBefore = len(Users.objects.all())
         # print("numOfUSER-Before create : ", numOfUserBefore)
 
-        query = '''
+        query = """
             mutation SIGNUP{signUp(data:{
                 firstName:"John"
                 lastName:"Doe"
@@ -45,9 +47,9 @@ class UserCrudTestCase(TestCase):
                         }
                 }
             }
-        '''       
-        self.client.login(username='TestUser1', password='ankara2020')
-        response = self.client.post('/graphql/', {'query': query,})
+        """
+        self.client.login(username="TestUser1", password="ankara2020")
+        response = self.client.post("/graphql/", {"query": query,})
         # print("---response create user ", response.content)
 
         self.assertEqual(response.status_code, 200)
@@ -56,5 +58,5 @@ class UserCrudTestCase(TestCase):
         # print('decoded---------- ********** ', decoded)
         numOfUserAfter = len(Users.objects.all())
         # print("numOfUSER-After create : ", numOfUserAfter)
-        self.assertEqual(numOfUserBefore +1, numOfUserAfter)
-        self.assertEqual(decoded['data']['signUp']['user']['username'], 'TestUser2')
+        self.assertEqual(numOfUserBefore + 1, numOfUserAfter)
+        self.assertEqual(decoded["data"]["signUp"]["user"]["username"], "TestUser2")

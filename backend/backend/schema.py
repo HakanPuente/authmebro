@@ -5,8 +5,10 @@ import graphql_social_auth
 
 import users.schema
 
+
 class Query(users.schema.Query, graphene.ObjectType):
     pass
+
 
 class Mutation(users.schema.Mutation, graphene.ObjectType):
     token_auth = graphql_jwt.relay.ObtainJSONWebToken.Field()

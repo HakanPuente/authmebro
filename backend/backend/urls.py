@@ -21,9 +21,9 @@ from users import views
 from django.conf.urls import url
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
-    path('signup/', views.signup, name='signup'),
+    path("admin/", admin.site.urls),
+    path("graphql/", csrf_exempt(GraphQLView.as_view(graphiql=True))),
+    path("signup/", views.signup, name="signup"),
     # path('activate/', views.activate, name='activate'),
     # url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
     #     views.activate, name='activate'),
