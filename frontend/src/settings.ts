@@ -4,6 +4,7 @@ const settings = {
   defaultPageSize: 10,
   dashboardUri: '/app/dashboard',
   signInUri: '/auth/sign-in',
+  signUpUri: '/auth/sign-up',
 };
 
 export default settings;

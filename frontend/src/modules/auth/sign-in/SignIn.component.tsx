@@ -57,6 +57,7 @@ const SignInForm: FunctionComponent<Props> = (props: Props) => {
   const { defaultUsername } = props;
   const dispatch = useDispatch();
   const router = useRouter();
+  console.log('---router---', router);
   const [errors, setErrors] = useState<any>([]);
   const [loadingMsg, setLoadingMsg] = useState<string>('');
 
@@ -66,6 +67,7 @@ const SignInForm: FunctionComponent<Props> = (props: Props) => {
     {
       onCompleted: result => {
         const { redirect } = router.query;
+        console.log('***** router ', router, ' *****');
         setErrors([]);
         if (
           result.tokenAuth &&
@@ -80,6 +82,7 @@ const SignInForm: FunctionComponent<Props> = (props: Props) => {
             result.tokenAuth.token,
             result.tokenAuth.refreshToken,
           );
+
           router.push((redirect as string) || settings.dashboardUri);
           dispatch(me(user));
         }
@@ -108,12 +111,7 @@ const SignInForm: FunctionComponent<Props> = (props: Props) => {
     },
     [signIn],
   );
-  // const loadingMsg = useSelector(
-  //   (state: RootState) => state.auth.signIn.loadingMsg,
-  // );
-  // const errorMsg = useSelector(
-  //   (state: RootState) => state.auth.signIn.errorMsg,
-  // );
+
   return (
     <Container>
       <Segment className="central-col">
@@ -136,7 +134,7 @@ const SignInForm: FunctionComponent<Props> = (props: Props) => {
               <h1>Sign In</h1>
               <TextControl
                 name="username"
-                label="Username"
+                label="U-Username"
                 icon="user"
                 handleChange={formikProps.handleChange}
                 handleBlur={formikProps.handleBlur}

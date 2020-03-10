@@ -1,16 +1,9 @@
 import { NextPage } from 'next';
-import Link from 'next/link';
-import Layout from '../../src/modules/common/layout';
+import AuthLayout from '../../src/modules/auth/auth-layout';
+// import ForgotPassword from '../../src/modules/auth/forgot/Forgot.component';
 
 const ForgotPage: NextPage = () => {
-  return (
-    <Layout>
-      <Link href="/auth/sign-in">
-        <a>Sign In</a>
-      </Link>
-      <div>Forgot</div>
-    </Layout>
-  );
+  return <AuthLayout>{/* <ForgotPassword /> */}</AuthLayout>;
 };
 
 ForgotPage.getInitialProps = async (): Promise<any> => ({

@@ -1,15 +1,12 @@
 import { NextPage } from 'next';
-import Link from 'next/link';
-import Layout from '../../src/modules/common/layout';
+import AuthLayout from '../../src/modules/auth/auth-layout';
+import SignUpForm from '../../src/modules/auth/sign-up/SignUp.component';
 
 const SignUpPage: NextPage = () => {
   return (
-    <Layout>
-      <Link href="/auth/sign-in">
-        <a>Sign In</a>
-      </Link>
-      <div>Sign Up</div>
-    </Layout>
+    <AuthLayout>
+      <SignUpForm />
+    </AuthLayout>
   );
 };
 
